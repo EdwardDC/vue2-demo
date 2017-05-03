@@ -1,30 +1,21 @@
 <template>
-  <div id="app">
-    <div class="nav-box">
-      <div class="nav ">
-        <div class="l">
-          <h1><a href="javascript:;"><img src="./assets/images/portal_b.png" alt=""></a></h1>
-          <el-menu theme="" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1">处理中心</el-menu-item>
-            <el-submenu index="2">
-              <template slot="title">我的工作台</template>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
-              <el-menu-item index="2-3">选项3</el-menu-item>
-            </el-submenu>
-            <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-          </el-menu>
-        </div>
-        <div class="r">
-          <div class="search">
-
-          </div>
-        </div>
+<div id="app">
+  <div class="headerWrapper" data-v-7ad4e6e1="">
+    <header class="header" :style="{ backgroundColor: bgColor }">
+      <div class="container">
+        <h1><a class="router-link-active" href="#/zh-CN"><img data-v-7ad4e6e1="" class="nav-logo" src="./assets/images/logo.svg" alt=""></a></h1>
+        <el-menu :default-active="activeIndex2" data-v-7ad4e6e1="" mode="horizontal" @select="handleSelect">
+          <el-menu-item class="nav-item" index="1">指南</el-menu-item>
+          <el-menu-item class="nav-item active" index="2">组件</el-menu-item>
+          <el-menu-item class="nav-item" index="3">资源</el-menu-item>
+          <el-menu-item class="nav-item" index="4"><a href="https://www.ele.me" target="_blank">中文/En</a></el-menu-item>
+        </el-menu>
       </div>
-    </div>
-
-    <router-view></router-view>
+    </header>
   </div>
+
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
@@ -32,25 +23,87 @@ export default {
   name: 'app',
   data () {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
-    }
-  },
-  methods: {
-    handleSelect (key, keyPath) {
-      alert(key, keyPath)
+      bgColor: 'rgb(32, 160, 255)'
     }
   }
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
 }
+.headerWrapper {
+    height: 80px;
+    .header {
+        color: #fff;
+        height: 80px;
+        left: 0;
+        line-height: 80px;
+        position: relative;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        h1 {
+          float: left;
+          font-size: 32px;
+          font-weight: 400;
+          margin: 0;
+          a {
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            .nav-logo {
+              vertical-align: sub;
+            }
+          }
+        }
+
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 30px;
+    .el-menu {
+        background: transparent none repeat scroll 0 0;
+        float: right;
+        height: 100%;
+        line-height: 80px;
+        margin: 0;
+        padding: 0;
+        .nav-item {
+            cursor: pointer;
+            float: left;
+            list-style: outside none none;
+            margin: 0 0 0 20px;
+            position: relative;
+            color: #fff;
+            opacity: 0.8;
+            font-weight: 700;
+            height: 80px;
+            line-height: 80px;
+            box-sizing: border-box;
+            &:hover {
+              background: none;
+              opacity: 1;
+              font-weight: bold;
+              border-bottom: 4px solid #99d2fc;
+            }
+            &.active {
+              background: none;
+              opacity: 1;
+              font-weight: bold;
+              border-bottom: 4px solid #99d2fc;
+            }
+        }
+    }
+}
+
+
 </style>
